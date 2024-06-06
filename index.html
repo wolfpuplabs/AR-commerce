@@ -23,24 +23,47 @@
     </section>
     <section class="get-started">
         <h2>Get Started</h2>
-        <div class="product">
-            <h3>Product 1</h3>
-            <model-viewer src="product1.glb" alt="A 3D model of product 1" ar ar-modes="webxr scene-viewer quick-look" camera-controls auto-rotate></model-viewer>
+        <div id="product-list">
+            <!-- Products will be appended here -->
         </div>
-        <div class="product">
-            <h3>Product 2</h3>
-            <model-viewer src="product2.glb" alt="A 3D model of product 2" ar ar-modes="webxr scene-viewer quick-look" camera-controls auto-rotate></model-viewer>
-        </div>
-        <div class="product">
-            <h3>Product 3</h3>
-            <model-viewer src="product3.glb" alt="A 3D model of product 3" ar ar-modes="webxr scene-viewer quick-look" camera-controls auto-rotate></model-viewer>
-        </div>
-    
+    </section>
+    <section class="uploader">
+        <h2>Upload Your 3D Asset</h2>
+        <input type="file" id="upload" accept=".glb, .gltf" onchange="handleFiles(event)">
+        <model-viewer id="uploadedModel" alt="Uploaded 3D Model" camera-controls auto-rotate></model-viewer>
+    </section>
+    <section class="add-product">
+        <h2>Add a New Product</h2>
+        <form id="product-form">
+            <input type="text" id="product-name" placeholder="Product Name" required>
+            <input type="url" id="product-url" placeholder="Product Model URL" required>
+            <button type="submit">Add Product</button>
+        </form>
+    </section>
     <footer>
         <p>&copy; 2024 AR Products. All rights reserved.</p>
     </footer>
 
     <script>
+        document.getElementById('product-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const productName = document.getElementById('product-name').value;
+            const productUrl = document.getElementById('product-url').value;
+            addProduct(productName, productUrl);
+            document.getElementById('product-form').reset();
+        });
+
+        function addProduct(name, url) {
+            const productList = document.getElementById('product-list');
+            const productDiv = document.createElement('div');
+            productDiv.classList.add('product');
+            productDiv.innerHTML = `
+                <h3>${name}</h3>
+                <model-viewer src="${url}" alt="A 3D model of ${name}" ar ar-modes="webxr scene-viewer quick-look" camera-controls auto-rotate></model-viewer>
+            `;
+            productList.appendChild(productDiv);
+        }
+
         function handleFiles(event) {
             const file = event.target.files[0];
             const url = URL.createObjectURL(file);
