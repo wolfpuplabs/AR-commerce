@@ -23,11 +23,11 @@ header h1 {
 .hero h2 {
     margin: 0;
 }
-.highlights, .get-started, .uploader, .add-product {
+.highlights, .get-started, .uploader {
     padding: 2rem 1rem;
     text-align: center;
 }
-.highlights h2, .get-started h2, .uploader h2, .add-product h2 {
+.highlights h2, .get-started h2, .uploader h2 {
     margin-bottom: 1.5rem;
 }
 .highlight-item {
@@ -46,20 +46,8 @@ header h1 {
     max-width: 300px;
     height: 300px;
 }
-.uploader input, .add-product input, .add-product button {
+.uploader input {
     margin: 1rem 0;
-    padding: 0.5rem;
-    font-size: 1rem;
-}
-.add-product input {
-    width: calc(100% - 2rem);
-    max-width: 300px;
-}
-.add-product button {
-    background: #000;
-    color: #fff;
-    border: none;
-    cursor: pointer;
 }
 footer {
     background: #222;
@@ -68,12 +56,12 @@ footer {
     padding: 2rem 1rem;
 }
 @media (min-width: 600px) {
-    .highlights, .get-started, .uploader, .add-product {
+    .highlights, .get-started, .uploader {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
     }
-    .highlight-item, .product, .uploader, .add-product {
+    .highlight-item, .product, .uploader {
         width: 45%;
         margin: 1rem;
     }
