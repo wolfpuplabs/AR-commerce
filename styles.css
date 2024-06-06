@@ -30,15 +30,7 @@ header h1 {
 .highlights h2, .get-started h2, .uploader h2 {
     margin-bottom: 1.5rem;
 }
-.highlight-item {
-    margin-bottom: 2rem;
-}
-.highlight-item img {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-}
-.product {
+.highlight-item, .product {
     margin-bottom: 2rem;
 }
 .product model-viewer, #uploadedModel {
@@ -55,14 +47,4 @@ footer {
     text-align: center;
     padding: 2rem 1rem;
 }
-@media (min-width: 600px) {
-    .highlights, .get-started, .uploader {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-    .highlight-item, .product, .uploader {
-        width: 45%;
-        margin: 1rem;
-    }
-}
+
